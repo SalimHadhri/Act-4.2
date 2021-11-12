@@ -20,10 +20,12 @@
 	<h1>  Liste des Annonces </h1>
 		<table border='1' width='100%'>
 		
-			<tr><th>title</th><th>description</th><th>category</th><th>price</th><th>localisation</th></tr>
+			<tr><th>identifiant</th><th>title</th><th>description</th><th>category</th><th>price</th><th>localisation</th></tr>
 			
 			
 			<%
+
+
 			
       		int  size = (int) request.getAttribute("tailleList") ;
 			ArrayList<Announcement> liste = (ArrayList<Announcement>)request.getAttribute("listAnnonces") ;
@@ -32,25 +34,14 @@
 			
       		
       		for( Announcement an:liste){
-			out.print("<tr><th>"+ an.getTitle()+"</th><th>"+an.getDescription()+"</th><th>"+an.getCategory().getName()+"</th><th>"+an.getPrice()+"</th><th>"+an.getLocalisation()+"</th></tr>");	 
+			out.print("<tr><th>"+ Integer.toString(an.getId_annoucement())+"</th><th>"+ an.getTitle()+"</th><th>"+an.getDescription()+"</th><th>"+an.getCategory().getName()+"</th><th>"+Integer.toString(an.getPrice())+"</th><th>"+an.getLocalisation()+"</th></tr>");	 
 		}
 		
       		 %>
       		
       		
 			
-			
-			<!-- <c:forEach items="${listAnnonces}" var="annonce">
 
-							<tr>
-									<th> <c:out value="${annonce.getTitle()}"/> </th>
-									<th> <c:out value="${annonce.getDescription()}"/> </th>							
-									<th> <c:out value="${annonce.getCategory()}"/> </th>
-									<th> <c:out value="${annonce.getPrice()}"/> </th>
-									<th> <c:out value="${annonce.getLocalisation() }"/> </th>
-															  
-							</tr>
-			</c:forEach> -->
 			
 			
 	

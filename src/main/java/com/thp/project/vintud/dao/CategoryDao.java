@@ -9,6 +9,10 @@ public interface CategoryDao {
 	
 	
 	public  Category getCategoryById(int id) ;
+	
+	public int getIdByName (String name) ;
+	
+	
 }
 
 

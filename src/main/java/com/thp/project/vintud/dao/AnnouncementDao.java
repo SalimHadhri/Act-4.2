@@ -20,6 +20,7 @@ public interface AnnouncementDao {
 	public Announcement findAnnounceById (int id) ;	
 	
 	public ArrayList<Announcement> findAllAnnoucement();
+	public void addAnnouncement(Announcement announcement) ;
 
 	
 }

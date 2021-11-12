@@ -90,7 +90,35 @@ public class CategoryDaoImpl implements CategoryDao{
 	}
 
 	
-	
+	public int getIdByName (String name) {
+		
+		int id = 0 ;
+		
+		requete = "SELECT * FROM vintud.category WHERE name ='"+ name + "'  ;" ;
+		try {
+	         Statement stmt = con.createStatement();
+	         résultats = stmt.executeQuery(requete);
+				
+	         boolean encore = résultats.next();
+			if(encore) {	
+				
+				id = résultats.getInt("id") ;
+
+				 
+			   	}
+			   
+			   résultats.close();
+			   
+		} catch (SQLException e) {
+				arret("Anomalie lors de l'execution de la requête") ;
+		}
+		
+		
+		return id  ;
+		
+		
+	}
+
 	
 	
 

@@ -15,20 +15,21 @@
    <%@ include file = "header.jsp"  %>
 	<h1>  Déposer une annonce </h1>
 	
-		<form action="CreateAnnouncement" method="post">  
+		<form action="createAnnouncement" method="post">  
 				<table>  
-					<tr><td>title : </td><td><input type="text" name="title"/></td></tr>  
-					<tr><td>description : </td><td><input type="text" name="description"/></td></tr>  
+					<tr><td>identifiant : </td><td><input type="text" name="id" id="title"/></td></tr>  				
+					<tr><td>title : </td><td><input type="text" name="title" id="title"/></td></tr>  
+					<tr><td>description : </td><td><input type="text" name="description" id="description"/></td></tr>  
 					<tr><td>category : </td><td>  
-					<select name="category" style="width:150px">  
+					<select name="category" id="category"  type="text" style="width:150px">  
 							<option>T-SHIRT</option>  
 							<option>Pantalon</option>  
 							<option>Veste</option>  
 					</select>  
 					</td></tr>
-					<tr><td>price : </td><td><input type="number" step="0.01" name="price"/></td></tr>  	
-					<tr><td>localisation  : </td><td><input type="text" name="localisation "/></td></tr>  							  
-					<tr><td colspan="2"><input type="submit" value="Save Announcement"/></td></tr>  
+					<tr><td>price : </td><td><input type="text" name="price"/></td></tr>  	
+					<tr><td>localisation  : </td><td><input type="text" id="localisation" name="localisation"/></td></tr>  							  
+					<tr><td colspan="2"><input type="submit" value="Save Announcement" "/></td></tr>  
 				</table>  
 		</form>  
 			

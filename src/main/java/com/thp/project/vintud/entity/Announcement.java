@@ -11,13 +11,13 @@ public class Announcement{
 
 	
 	
-	private int id_annoucement ;
+	private int id ;
 	private String title  ;
 	private String description  ;
 	private int category_id  ;
-	private float price ;
-	private byte picture ;
-	private Timestamp publication_date ; 
+	private int price ;
+	private String picture;
+	private String publication_date; 
 	private boolean is_available  ;
 	private int view_number  ;
 	private String localisation  ;
@@ -66,10 +66,19 @@ public class Announcement{
 
 
 
-	public Announcement(int id_annoucement, String title, String description, int category_id, float price,
-			byte picture, Timestamp publication_date, boolean is_available, int view_number, String localisation,
-			int user_id) {
-		this.id_annoucement = id_annoucement;
+
+
+
+
+
+
+
+
+
+	public Announcement(int id, String title, String description, int category_id, int price, String picture,
+			String publication_date, boolean is_available, int view_number, String localisation, int user_id) {
+		super();
+		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.category_id = category_id;
@@ -85,13 +94,13 @@ public class Announcement{
 
 
 	public int getId_annoucement() {
-		return id_annoucement;
+		return id;
 	}
 
 
 
 	public void setId_annoucement(int id_annoucement) {
-		this.id_annoucement = id_annoucement;
+		this.id = id_annoucement;
 	}
 
 
@@ -125,32 +134,32 @@ public class Announcement{
 	}
 
 
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
 
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
 
-	public byte getPicture() {
+	public String getPicture() {
 		return picture;
 	}
 
 
-	public void setPicture(byte picture) {
+	public void setPicture(String picture) {
 		this.picture = picture;
 	}
 
 
-	public Timestamp getPublication_date() {
+	public String getPublication_date() {
 		return publication_date;
 	}
 
 
-	public void setPublication_date(Timestamp publication_date) {
+	public void setPublication_date(String publication_date) {
 		this.publication_date = publication_date;
 	}
 
@@ -215,7 +224,7 @@ public class Announcement{
 
 	@Override
 	public String toString() {
-		return "Announcement [id_annoucement=" + id_annoucement + ", title=" + title + ", description=" + description
+		return "Announcement [id_annoucement=" + id + ", title=" + title + ", description=" + description
 				+ ", category_id=" + category_id + ", price=" + price + ", picture=" + picture + ", publication_date="
 				+ publication_date + ", is_available=" + is_available + ", view_number=" + view_number
 				+ ", localisation=" + localisation + ", user_id=" + user_id + "]";

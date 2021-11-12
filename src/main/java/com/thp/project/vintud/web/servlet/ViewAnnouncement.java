@@ -43,16 +43,19 @@ public class ViewAnnouncement extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-	
+        
+	     // response.setIntHeader("Refresh", 5);
+	      
     	request.setAttribute("tailleList",annonces.size());
     	request.setAttribute("listAnnonces",annonces);
     	request.setAttribute("controllerCategory",categoryController);
+    	
 
 
 
 		
-        this.getServletContext().getRequestDispatcher("/WEB-INF/viewAnnouncement.jsp").forward(request, response);
+    	request.getRequestDispatcher("/WEB-INF/viewAnnouncement.jsp").forward(request, response);
+
 	}
 
 	/**
@@ -61,10 +64,6 @@ public class ViewAnnouncement extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
-		
-
-
 		
 		
 	}

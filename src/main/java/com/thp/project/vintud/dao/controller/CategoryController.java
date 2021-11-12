@@ -19,4 +19,9 @@ public class CategoryController {
 		return category ;
 		
 	}
+	
+	public int getIdByName (String name) {
+		
+		return categoryDao.getIdByName(name);
+	}
 }

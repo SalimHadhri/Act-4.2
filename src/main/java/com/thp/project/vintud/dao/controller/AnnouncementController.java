@@ -31,6 +31,11 @@ public class AnnouncementController {
 		return announcementDao.findAllAnnoucement();	
 	}
 	
+	public void addAnnouncement(Announcement announcement) {
+		
+		announcementDao.addAnnouncement(announcement);
+
+	}
 	
 	
 
