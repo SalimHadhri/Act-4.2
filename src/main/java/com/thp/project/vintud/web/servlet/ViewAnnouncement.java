@@ -33,7 +33,7 @@ public class ViewAnnouncement extends HttpServlet {
 
     AnnouncementController announcementController = new AnnouncementController() ;
 	ArrayList<Announcement> annonces = announcementController.getAllAnnonces() ;		
-    CategoryController categoryController = new CategoryController() ;
+   // CategoryController categoryController = new CategoryController() ;
 
 
     
@@ -44,11 +44,11 @@ public class ViewAnnouncement extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
         
-	     // response.setIntHeader("Refresh", 5);
 	      
     	request.setAttribute("tailleList",annonces.size());
     	request.setAttribute("listAnnonces",annonces);
-    	request.setAttribute("controllerCategory",categoryController);
+    //	request.setAttribute("controllerCategory",categoryController);
+
     	
 
 

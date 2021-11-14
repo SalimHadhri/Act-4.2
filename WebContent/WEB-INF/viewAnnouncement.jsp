@@ -31,25 +31,19 @@
 			<tr><th>identifiant</th><th>title</th><th>description</th><th>category</th><th>price</th><th>localisation</th></tr>
 			
 			
-			<%
-
-
-			
-      		int  size = (int) request.getAttribute("tailleList") ;
-			ArrayList<Announcement> liste = (ArrayList<Announcement>)request.getAttribute("listAnnonces") ;
-			
-			
-			
-      		
-      		for( Announcement an:liste){
-			out.print("<tr><th>"+ Integer.toString(an.getId_annoucement())+"</th><th>"+ an.getTitle()+"</th><th>"+an.getDescription()+"</th><th>"+an.getCategory().getName()+"</th><th>"+Integer.toString(an.getPrice())+"</th><th>"+an.getLocalisation()+"</th></tr>");	 
-		}
+		        <c:forEach items="${listAnnonces}" var="annonce"  >
+		                <tr>
+		                        <th><c:out value="${annonce.getId_annoucement()}" /></th>
+		                        <th><c:out value="${annonce.title}" /></th>
+		                        <th><c:out value="${annonce.description}" /></th>
+		                        <th><c:out value="${annonce.category.name}" /></th>
+		                        <th><c:out value="${annonce.price}" /></th>
+		                        <th><c:out value="${annonce.localisation}" /></th>	                        
+		                  </tr>		                     
+		                   
+		        </c:forEach>
+			</table>
 		
-      		 %>
-      		
-
-			
-		</table>
 
 
 </body>
