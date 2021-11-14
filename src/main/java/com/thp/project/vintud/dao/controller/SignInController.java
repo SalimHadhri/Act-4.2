@@ -10,18 +10,25 @@ import com.thp.project.vintud.entity.User;
 
 
 
-public class UserController {
+public class SignInController {
 	
 	UserDao userDAO = DAOFactory.getUserDAO() ;
 	
-	public UserController() {
+	public SignInController() {
 	}
 	
 	public ArrayList<User> getAllUsers() {		
 		return userDAO.findAllUsers();	
 	}
 	
+	public int findIdRoleByName(String name) {
+		
+		return userDAO.findIdRoleByName(name);
+	}
 	
+	public int addUser( User user) {
+		return userDAO.creerUnCompte(user);
+	}
 	
 
 }

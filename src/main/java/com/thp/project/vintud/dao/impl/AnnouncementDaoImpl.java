@@ -386,10 +386,10 @@ public void consulterAnnonces () {
 	}
 
 	@Override
-	public void addAnnouncement(Announcement announcement) {
+	public int addAnnouncement(Announcement announcement) {
 
 		  
-
+		int status = 0 ;
 		
 			
 		String title = "'"+announcement.getTitle()+"'" ;
@@ -404,33 +404,18 @@ public void consulterAnnonces () {
 		
 		requete="INSERT INTO vintud.announcement values ("+announcement.getId_annoucement()+","+ title+","+description+","+announcement.getCategory_id()+","+announcement.getPrice()+","+picture+","+date+","+announcement.isIs_available()+","+announcement.getView_number()+","+localisation+","+announcement.getUser_id() +");" ;
 
-	/*	try {
-			 Statement stmt = con.createStatement();
-			 résultats = stmt.executeQuery(requete);
-			 boolean encore = résultats.next();
-			 if (!encore) {
-			        System.out.println("Your announcement has been saved !! Congrat ;)  ");
-			        résultats.close() ;
-			 }
-			 
 
-	        
-		} 
-		catch (SQLException e) {
-	        System.out.println("Yourffsfss;)  ");
-
-		}		
-	    System.exit(0);*/
 
 		try {
 			Statement stmt = con.createStatement();
-	        stmt.executeUpdate(requete) ;        
+	        status = stmt.executeUpdate(requete) ;        
 	        System.out.println("Your profile has been saved !! Congrat ;)  ");
 		} 
 		catch (SQLException e) {
-				arret("Anomalie lors de l'execution de la requête") ;
+			status=-1 ;
 		}
 		affiche("fin du programme");
+		return status ;
 		
 	}
 	

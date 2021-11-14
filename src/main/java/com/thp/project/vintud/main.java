@@ -57,6 +57,8 @@ public class main {
 
 	    		
 		//announcementDao.consulterAnnonces(); 
+	    
+	    /*
 Announcement A = new Announcement() ;
 		A.setTitle("moto");
 		A.setDescription("vend moto");
@@ -68,12 +70,16 @@ Announcement A = new Announcement() ;
 		A.setLocalisation("tunis");
 		A.setUser_id(1);
 		A.setPicture("a voir ") ;
-	A.setId_annoucement(777222333) ;
+	A.setId_annoucement(7) ;
 
 		
 		announcementDao.addAnnouncement(A)  ;
 		//System.out.println(s) ;
-		
+		*/
+	    
+	    
+	    
+	    System.out.println(userDao.findIdRoleByName("ADMIN")) ;
 		
 	}
 	

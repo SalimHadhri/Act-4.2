@@ -31,9 +31,9 @@ public class AnnouncementController {
 		return announcementDao.findAllAnnoucement();	
 	}
 	
-	public void addAnnouncement(Announcement announcement) {
+	public int addAnnouncement(Announcement announcement) {
 		
-		announcementDao.addAnnouncement(announcement);
+		return announcementDao.addAnnouncement(announcement);
 
 	}
 	

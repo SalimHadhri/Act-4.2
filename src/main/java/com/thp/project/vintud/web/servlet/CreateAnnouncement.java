@@ -1,6 +1,8 @@
 package com.thp.project.vintud.web.servlet;
 
 import java.io.IOException; 
+
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -44,7 +46,8 @@ public class CreateAnnouncement extends HttpServlet {
     
     CategoryController categoryController = new CategoryController() ;
     
-	ArrayList<Announcement> annonces = announcementController.getAllAnnonces() ;		
+	ArrayList<Announcement> annonces = announcementController.getAllAnnonces() ;
+
 
     
 	/**
@@ -70,6 +73,8 @@ public class CreateAnnouncement extends HttpServlet {
 		//					<tr><td>price : </td><td><input type="number" id="price" step="0.01" name="price"/></td></tr>  	
 
 
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();	
 		
 		String titre=request.getParameter("title");
 		String description=request.getParameter("description");
@@ -91,7 +96,7 @@ public class CreateAnnouncement extends HttpServlet {
 		
 		
 		announcement.setLocalisation(localisation) ;	
-		announcement.setUser_id(1);
+		announcement.setUser_id(2);
 		int idCat = categoryController.getIdByName(category_name) ;	
 		announcement.setCategory_id(idCat);
 		announcement.setPicture("A voir");
@@ -103,13 +108,19 @@ public class CreateAnnouncement extends HttpServlet {
 		
 	
 		
-		announcementController.addAnnouncement(announcement) ;
-  
-		//request.getRequestDispatcher("/WEB-INF/viewAnnouncement.jsp").forward(request, response);
-        response.sendRedirect("viewAnnouncement");
+		int status =announcementController.addAnnouncement(announcement) ;
+		
+		
+		if (status>0) {
+		    ViewAnnouncement voir = new ViewAnnouncement() ;
+		    voir.doGet(request, response) ;
+		}else if (status==-1){
+			out.print("<p>Sorry! unable to save Account !Plz change your id !! </p>");
+			request.getRequestDispatcher("/WEB-INF/createAnnouncement.jsp").include(request, response);
 
+		}
+		
 
-      
     }
 	
 

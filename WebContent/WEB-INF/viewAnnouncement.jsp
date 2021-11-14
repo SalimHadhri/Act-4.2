@@ -1,8 +1,12 @@
-<%@page import="com.thp.project.vintud.entity.Announcement"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@page import="com.thp.project.vintud.entity.Announcement"%>
+<%@page import="java.util.ArrayList"%>
+
+
+ 
+
+  
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
                       "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,7 +21,11 @@
 
    <%@ include file = "header.jsp"  %>
    
+   
 	<h1>  Liste des Annonces </h1>
+	
+
+	
 		<table border='1' width='100%'>
 		
 			<tr><th>identifiant</th><th>title</th><th>description</th><th>category</th><th>price</th><th>localisation</th></tr>
@@ -39,12 +47,7 @@
 		
       		 %>
       		
-      		
-			
 
-			
-			
-	
 			
 		</table>
 

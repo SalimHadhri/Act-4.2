@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 import com.thp.project.vintud.dao.UserDao;
 import com.thp.project.vintud.dao.factory.DAOFactory;
+import com.thp.project.vintud.entity.Announcement;
 import com.thp.project.vintud.entity.User;
 
 
@@ -38,10 +39,11 @@ public class UserDaoImpl implements UserDao {
 	public UserDaoImpl() {
 	}
 
-	public void creerUnCompte (){
-
-    	
-		User user = chooseUserSpecifications() ;
+	public int creerUnCompte (User user){
+		int status = 0 ;
+    	boolean existmail = emailExist(user.getMail()) ;
+    	boolean existPhone = phoneExist(user.getPhone()) ;
+    	if (!existmail && !existPhone) {
 		
 		String firstname = "'"+user.getFirstname()+"'" ;
 		String name = "'"+user.getName()+"'" ;
@@ -55,15 +57,25 @@ public class UserDaoImpl implements UserDao {
 				
 		try {
 			Statement stmt = con.createStatement();
-	        stmt.executeUpdate(requete) ;        
+			status=stmt.executeUpdate(requete) ;        
 	        System.out.println("Your profile has been saved !! Congrat ;)  ");
 	        résultats.close();
 		} 
 		catch (SQLException e) {
-				arret("Anomalie lors de l'execution de la requête") ;
+			status=-1 ;
 		}
+    	}else if (existmail && !existPhone){
+	        System.out.println("Email Already exists ;)  ");
+	        status=0 ;
+
+    	}
+    	else if (!existmail && existPhone){
+	        System.out.println("Phone Already exists ;)  ");
+	        status=-2 ;
+    	}
+    	
 		affiche("fin du programme");
-	    System.exit(0);
+		return status ;
 	}
 
 	
@@ -288,5 +300,78 @@ public class UserDaoImpl implements UserDao {
 			return usersList ;
 			
 		}
+		
+		@Override
+		public int findIdRoleByName(String name) {
 
+			
+			int idRole =0 ;
+			requete = "SELECT * FROM vintud.role WHERE  nom = '"+name + "'  ;" ;
+			try {
+		         Statement stmt = con.createStatement();
+		         résultats = stmt.executeQuery(requete);
+					
+		         boolean encore = résultats.next();
+				if(encore) {
+					idRole = résultats.getInt("id") ;
+				}
+
+				   	
+				   
+				   résultats.close();
+				   
+			} catch (SQLException e) {
+					arret("Anomalie lors de l'execution de la requête") ;
+			}
+			return idRole ;
+
+}
+		
+		public boolean emailExist(String email) {
+			
+			boolean exist =false ;
+			requete = "SELECT * FROM vintud.user WHERE  mail = '"+email + "'  ;" ;
+			try {
+		         Statement stmt = con.createStatement();
+		         résultats = stmt.executeQuery(requete);
+					
+		         boolean encore = résultats.next();
+				if(encore) {
+					 exist=true;
+				}
+
+				   	
+				   
+				   résultats.close();
+				   
+			} catch (SQLException e) {
+					arret("Anomalie lors de l'execution de la requête") ;
+			}
+			return exist ;
+			
+		}
+		
+		public boolean phoneExist(String phone) {
+			
+			boolean exist =false ;
+			requete = "SELECT * FROM vintud.user WHERE  phone = '"+phone + "'  ;" ;
+			try {
+		         Statement stmt = con.createStatement();
+		         résultats = stmt.executeQuery(requete);
+					
+		         boolean encore = résultats.next();
+				if(encore) {
+					 exist=true;
+				}
+
+				   	
+				   
+				   résultats.close();
+				   
+			} catch (SQLException e) {
+					arret("Anomalie lors de l'execution de la requête") ;
+			}
+			return exist ;
+			
+		}
 }

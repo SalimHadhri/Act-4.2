@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ 
     
     <ul>
-    
-    	<li><a href="/VitudWebApp/viewAnnouncement"> VIEW ANNOUNCEMENT  </a></li>
-    	
-    	<li>  <a href="/VitudWebApp/createAnnouncement"> CREATE ANNOUNCEMENT  </a></li>
+	
+    	<form action="header" method="post">  
+				<table>  
+					<tr><input type="submit"   name="announcements"  value="View announcements" />   </tr>  							  
+					<tr><input type="submit"   name="announcements"  value="Create announcement"   />  </tr>  
+				</table>  
+		</form>  
     	
     </ul>	
     

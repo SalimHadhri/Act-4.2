@@ -9,7 +9,7 @@ import com.thp.project.vintud.entity.User;
 
 public interface UserDao {
 		
-	public void creerUnCompte () ;	
+	public int creerUnCompte (User user) ;	
 	public User chooseUserSpecifications ();	
 	public void afficherRoles() ;
 	public User connectAccount () ; 
@@ -17,6 +17,9 @@ public interface UserDao {
 	public void afficherUtilisateurs() ;
 	
 	public ArrayList<User> findAllUsers () ;
+	
+	public int findIdRoleByName(String name) ;
+	public boolean emailExist(String email) ;
 
 	
 }
