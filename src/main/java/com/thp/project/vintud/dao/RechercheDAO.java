@@ -9,7 +9,7 @@ public interface RechercheDAO {
 	public void afficherRecherches() ;
 	public void supprimerRecherche () ;
 	public Recherche findResearchByIdUser (int id_user) ;
-	public void lancerRecherche() ;
+	public void lancerRecherche(String email, String pwd) ;
 	public void modifyRecherche() ;
 	
 }

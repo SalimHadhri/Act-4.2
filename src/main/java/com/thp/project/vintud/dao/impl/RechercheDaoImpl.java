@@ -204,9 +204,9 @@ public class RechercheDaoImpl implements RechercheDAO{
 	    
 	    
 	    
-	    public void lancerRecherche() {
+	    public void lancerRecherche(String email, String pwd) {
 	    	
-	    	User utilisateurConnecte = userDAO.connectAccount() ;
+	    	User utilisateurConnecte = userDAO.connectAccount(email,pwd) ;
 	    	
 	    	//Recherche searchFound = findResearchByIdUser(utilisateurConnecte.getId_user()) ;
 	    	

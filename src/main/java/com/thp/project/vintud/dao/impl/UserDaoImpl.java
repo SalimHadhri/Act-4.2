@@ -170,24 +170,18 @@ public class UserDaoImpl implements UserDao {
 			}
 		}
 	  
-	  public User connectAccount () {
+	  public User connectAccount (String email, String pwd) {
 	    	
 	    	User userConnected = new User () ;
-			boolean repeat = true ;		
-		 	while (repeat ) {				
+		       
+					String Mail = "'"+email+"'" ;
+					String passeword = "'"+pwd+"'" ;
+
 			try {				
-				Scanner sc21 = new Scanner(System.in);
-				System.out.println("Enter your email:");
-				String email= sc21.nextLine() ;
-				
-				Scanner sc23 = new Scanner(System.in);
-				System.out.println("Enter your password:");
-				String passeword= sc23.nextLine();
-	       
-				String Mail2 = "'"+email+"'" ;
-				String pwd2 = "'"+passeword+"'" ;
+
+
 		         
-				requete = "SELECT * FROM vintud.user WHERE mail = "+Mail2+" AND  u_password="+pwd2 +"  ; ";
+				requete = "SELECT * FROM vintud.user WHERE mail = "+Mail+" AND  u_password="+passeword +"  ; ";
 
 				Statement stmt = con.createStatement();
 				résultats = stmt.executeQuery(requete);
@@ -196,7 +190,6 @@ public class UserDaoImpl implements UserDao {
 				if(encore) 
 				{						
 					System.out.println("successs");
-					repeat = false ;
 
 					userConnected.setId_user(résultats.getInt("id"));
 					userConnected.setFirstname(résultats.getString("firstname"));
@@ -211,6 +204,7 @@ public class UserDaoImpl implements UserDao {
 				}
 				else {
 					System.out.println("failed!!  enter new passeword!!");
+					userConnected.setId_user(-1);
 
 				}
 		  		résultats.close();
@@ -218,7 +212,7 @@ public class UserDaoImpl implements UserDao {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-			}
+			
 			affiche("fin du programme");
 		 	return userConnected ;
 		 	
@@ -226,9 +220,9 @@ public class UserDaoImpl implements UserDao {
 	  
 	  
 	  
-	  public void modificationInformationsPersonnelles () {
+	  public void modificationInformationsPersonnelles (String mail, String password) {
 	    	
-	    	User connectedUser = connectAccount();   	
+	    	User connectedUser = connectAccount(mail,password);   	
 	    	System.out.println("  let's modify your personal infos "); 	
 	    	System.out.println("pleaze enter your new informations");
 	    	  	

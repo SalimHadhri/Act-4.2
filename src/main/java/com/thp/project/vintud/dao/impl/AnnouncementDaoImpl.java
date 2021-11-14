@@ -253,9 +253,9 @@ public class AnnouncementDaoImpl implements AnnouncementDao{
 		
 	}
 
-	public void voirNombreVues () {
+	public void voirNombreVues (String email, String pwd) {
 		
-		User userConnected = userDAO.connectAccount() ;
+		User userConnected = userDAO.connectAccount(email,pwd) ;
 		
 		requete = "SELECT * FROM vintud.announcement WHERE user_id = "+userConnected.getId_user()+"; ";
 		

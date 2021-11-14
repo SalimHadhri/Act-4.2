@@ -49,4 +49,16 @@
   </servlet-mapping>
   
   
+      <servlet>
+    <servlet-name>Connect</servlet-name>
+    <servlet-class>com.thp.project.vintud.web.servlet.Connect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Connect</servlet-name>
+    <url-pattern>/Connect</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
 </web-app>

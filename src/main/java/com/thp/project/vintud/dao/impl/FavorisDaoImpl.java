@@ -255,9 +255,9 @@ public class FavorisDaoImpl implements FavorisDAO{
 	}
 	
 	
-	public void enregistrerAnnonceFavori(int idFavori) {
+	public void enregistrerAnnonceFavori(int idFavori,String email, String pwd) {
 		
-		User userConnected = userDAO.connectAccount();
+		User userConnected = userDAO.connectAccount(email, pwd);
 		
 		System.out.println("**********voici la liste de vos annonces***************");
 		announceDAO.consulterAnnonces();

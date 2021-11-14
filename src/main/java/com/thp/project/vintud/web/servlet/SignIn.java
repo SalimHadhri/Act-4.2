@@ -61,6 +61,8 @@ public class SignIn extends HttpServlet {
 		
 		User utilisateurEnregistre = new User();
 		
+		Connect connexion = new Connect() ;
+		
 		String id=request.getParameter("id");		
 		String Nom=request.getParameter("Nom");
 		String Prenom=request.getParameter("Prenom");
@@ -87,8 +89,9 @@ public class SignIn extends HttpServlet {
 		int status =signController.addUser(utilisateurEnregistre) ;	
 
 		if (status>0) {
-			out.print("<p>Account saved successfully!</p>");
-			request.getRequestDispatcher("/WEB-INF/signIn.jsp").include(request, response);
+			
+			connexion.doGet(request, response);
+			
 		}else if (status==-1){
 			out.print("<p>Sorry! unable to save Account ! change your id !</p>");
 			request.getRequestDispatcher("/WEB-INF/signIn.jsp").include(request, response);

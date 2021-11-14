@@ -12,8 +12,8 @@ public interface UserDao {
 	public int creerUnCompte (User user) ;	
 	public User chooseUserSpecifications ();	
 	public void afficherRoles() ;
-	public User connectAccount () ; 
-	public void modificationInformationsPersonnelles () ;
+	public User connectAccount (String email, String pwd) ; 
+	public void modificationInformationsPersonnelles (String email, String pwd) ;
 	public void afficherUtilisateurs() ;
 	
 	public ArrayList<User> findAllUsers () ;

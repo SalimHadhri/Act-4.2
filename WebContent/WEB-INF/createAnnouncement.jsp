@@ -18,7 +18,7 @@
 
 		<form action="createAnnouncement" method="post">  
 				<table>  
-					<tr><td>identifiant : </td><td><input type="text" name="id" id="title"/></td></tr>  				
+					<tr><td>identifiant : </td><td><input type="text" name="id" id="id"/></td></tr>  				
 					<tr><td>title : </td><td><input type="text" name="title" id="title"/></td></tr>  
 					<tr><td>description : </td><td><input type="text" name="description" id="description"/></td></tr>  
 					<tr><td>category : </td><td>  

@@ -14,7 +14,7 @@ public interface FavorisDAO {
 	public Favoris findFavoriById (int id) ;
 	public void modifyFavori()	;
 	
-	public void enregistrerAnnonceFavori(int idFavori) ;
+	public void enregistrerAnnonceFavori(int idFavori,String email, String pwd) ;
 	public void afficherFavorisForAUser(int idUser) ;
 	
 	public ArrayList<Favoris> findFavoriByIdUser (int id) ;
