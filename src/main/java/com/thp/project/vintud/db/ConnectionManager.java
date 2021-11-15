@@ -37,7 +37,7 @@ public class ConnectionManager {
              if(con==null){
             	 try {
             		 
-            		 con = DriverManager.getConnection( "jdbc:postgresql://localhost:5432/vintud", "postgres", "DkPB7D+");
+            		 con = DriverManager.getConnection( "jdbc:postgresql://localhost:5432/vintud", "postgres", "postgres");
             	 }
             	 catch (SQLException ex) {
             		 System.out.println("Failed to create the database connection.");

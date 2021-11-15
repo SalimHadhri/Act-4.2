@@ -1,10 +1,9 @@
 package com.thp.project.vintud.web.servlet;
 
-import java.io.IOException; 
+import java.io.IOException;  
 
 
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -13,14 +12,13 @@ import java.util.ArrayList;
 import com.thp.project.vintud.dao.controller.AnnouncementController;
 import com.thp.project.vintud.dao.controller.CategoryController;
 import com.thp.project.vintud.entity.Announcement;
-import com.thp.project.vintud.entity.Category;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse; 
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession; 
 
 
 
@@ -93,10 +91,19 @@ public class CreateAnnouncement extends HttpServlet {
 		announcement.setPrice(Integer.parseInt(request.getParameter("price"))) ;	
 		announcement.setId_annoucement(Integer.parseInt(request.getParameter("id")));
 
-		
-		
 		announcement.setLocalisation(localisation) ;	
-		announcement.setUser_id(2);
+		
+		
+    	
+    	//request.getSession().getAttribute("id");
+		
+		 HttpSession session=request.getSession(false);  
+	     int idUser=(int) session.getAttribute("id");  
+	        
+    	announcement.setUser_id(idUser);
+		
+		
+		
 		int idCat = categoryController.getIdByName(category_name) ;	
 		announcement.setCategory_id(idCat);
 		announcement.setPicture("A voir");
